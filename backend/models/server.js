@@ -1,6 +1,5 @@
 
 import Hapi from '@hapi/hapi'
-import securityRoutes from '../routes/security.routes.js';
 
 
 import dataBase from '../database/connect-db.js';
@@ -8,6 +7,7 @@ import dataBase from '../database/connect-db.js';
 
 import clientRoutes from '../routes/client.routes.js';
 import authRoutes from '../routes/auth.routes.js';
+import securityRoutes from '../routes/security.routes.js';
 
 
 
@@ -59,10 +59,10 @@ class Server {
     //manejo de rutas
     routes() {
 
-        this.app.route(securityRoutes)
         this.app.route(clientRoutes)
         this.app.route(authRoutes)
-
+        
+        this.app.route(securityRoutes)
     }
 
 

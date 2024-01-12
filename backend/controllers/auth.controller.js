@@ -35,18 +35,12 @@ const login = async (req = reque, res = respon) => {
         }
         
         //Generamos TOKEN
-        const value = await generateJWT(client.id)
-        const name=client.name
-   
-     
-        const newToken = await Token.create({name,value})    
-        await newToken.save()
-
+        const token = await generateJWT(client.id)
+       
         return res.response({
             client,
-            value,
-            name
-           
+            token
+          
         })
     } catch (error) {
         console.log("Ha ocurrido un error: ",error)

@@ -1,11 +1,6 @@
-/* 
 
-handler: (request, h) => {
-
-    return 'Hello World!';
-} */
-
-import generateToken from '../controllers/generateToken.controller.js'
+import {generateToken, updateToken } from '../controllers/generateToken.controller.js'
+import validateJWT from '../middlewares/validate-jwt.js'
 
 
 //rutas para mi generador de token
@@ -13,7 +8,13 @@ const securityRoutes=[
             {
                 method: 'POST',
                 path: '/api/generateToken',
-                handler: generateToken,
+                handler: generateToken
+               
+            },
+            {
+                method: 'POST',
+                path: '/api/updateToken',
+                handler: updateToken,
             },
            /*  {
                 method: 'POST',
