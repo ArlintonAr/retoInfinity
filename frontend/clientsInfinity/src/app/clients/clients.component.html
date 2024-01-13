@@ -1,0 +1,63 @@
+
+
+<div class="container mt-3 mb-5">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card bg-dark text-white">
+        <div class="card-body">
+          <form>
+            <div class="row mb-2">
+              <div class="col">
+                <label for="name" class="form-label">Nombre:</label>
+                <input type="text" [(ngModel)]="name" class="form-control" id="name"  name="name" required>
+              </div>
+              <div class="col">
+                <label for="lastName" class="form-label">Apellido:</label>
+                <input type="text"  [(ngModel)]="lastName" class="form-control" id="lastName" name="lastName" required>
+              </div>
+            </div>
+            <div class="mb-2">
+              <label for="email" class="form-label">Correo Electrónico:</label>
+              <input type="email" [(ngModel)]="email" class="form-control" id="email" name="email" required>
+            </div>
+
+            <div class="mb-2">
+              <label for="phoneNumber" class="form-label">Número de Teléfono:</label>
+              <input type="tel" [(ngModel)]="phoneNumber" class="form-control" id="phoneNumber"  name="phoneNumber">
+            </div>
+            <div class="mb-2">
+              <label for="address" class="form-label">Dirección:</label>
+              <textarea class="form-control" [(ngModel)]="address" id="address" name="address" rows="2"></textarea>
+            </div>
+            <button type="button" class="btn btn-primary" (click)="addClient()">Registrar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card bg-dark text-white">
+        <button type="button" class="btn btn-primary" >Generar Token</button>
+
+        <div class="card-body">
+          <p class="card-title">Token Generado</p>
+          <p class="card-text"></p>
+        </div>
+      </div>
+      <tokens-table></tokens-table>
+    </div>
+
+
+    <div class="div">
+      <img src="" alt="">
+    </div>
+
+  </div>
+
+  <!--  Tabla Clientes -->
+
+  <clients-table></clients-table>
+
+  <!--  Tabla Tokens -->
+
+
+</div>

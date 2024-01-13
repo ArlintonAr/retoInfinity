@@ -1,0 +1,36 @@
+
+<div *ngIf="clients.length===0 else table" class="alert text-center text-white border" >
+  No hay Clientes que mostrar
+</div>
+
+<ng-template #table>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Correo</th>
+        <th>Direccion</th>
+        <th>Celular</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let client of clients ">
+
+          <td>{{client.id}}</td>
+          <td>{{client.name}}</td>
+          <td>{{client.lastName}}</td>
+          <td>{{client.email}}</td>
+          <td>{{client.address}}</td>
+          <td>{{client.phoneNumber}}</td>
+          <td>{{client.active}}</td>
+         <!--  <td>
+             <a [routerLink]="['/countries/by',country.cca3]" href="#">Info</a>
+          </td> -->
+        </tr>
+    </tbody>
+  </table>
+</ng-template>

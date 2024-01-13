@@ -1,0 +1,24 @@
+<div *ngIf="tokens.length === 0 else table" class="alert text-center text-white border">
+  No hay Clientes que mostrar
+</div>
+
+<ng-template #table>
+  <div style="max-height: 200px; overflow-y: auto;">
+    <table class="table table-hover table-sm">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let token of tokens">
+          <td>{{ token.id }}</td>
+          <td>{{ token.name }}</td>
+          <td>{{ token.value }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>
