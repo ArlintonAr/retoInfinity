@@ -1,5 +1,5 @@
 
-import {generateToken, updateToken } from '../controllers/generateToken.controller.js'
+import {generateToken, listToken, updateToken } from '../controllers/generateToken.controller.js'
 import validateJWT from '../middlewares/validate-jwt.js'
 
 
@@ -15,6 +15,12 @@ const securityRoutes=[
                 method: 'POST',
                 path: '/api/updateToken',
                 handler: updateToken,
+            },
+            
+            {
+                method: 'GET',
+                path: '/api/generateToken',
+                handler: listToken,
             },
            /*  {
                 method: 'POST',

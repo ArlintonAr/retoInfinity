@@ -16,11 +16,21 @@ class Server {
 
     constructor() {
         //Creo una variable a partir de Hapi
-        this.PORT=process.env.PORT //llamo mi variable del puerto desde mis variables de entorno 
+        this.PORT = process.env.PORT //llamo mi variable del puerto desde mis variables de entorno 
         this.app = Hapi.Server({
             port: this.PORT,
-            host: 'localhost'
+            host: 'localhost',      
+            'routes': { //Esta configuracion para por accederde otras rutas
+                "cors": {
+                    "origin": ["http://localhost:4200"],
+                    "headers": ["Accept", "Content-Type"],
+                    "additionalHeaders": ["X-Requested-With"],
+          
+                
+                }
+            }
         })
+     
 
         //Conexion a la base de datos
         this.connectDb()
@@ -32,20 +42,19 @@ class Server {
 
     //Conexión a la base de datos
 
-    async connectDb(){
+    async connectDb() {
         try {
-        
+
             await dataBase.authenticate()
             console.log('La conexion a base de datos ha sido exitosa')
-            
+
         } catch (error) {
-           throw new Error(error)
-            
+            throw new Error(error)
+
         }
     }
     //Middlewares
-    middlewares(){
-      
+    async middlewares() {
     }
     //Escuchando el servidor
     async listen() {
@@ -61,7 +70,7 @@ class Server {
 
         this.app.route(clientRoutes)
         this.app.route(authRoutes)
-        
+
         this.app.route(securityRoutes)
     }
 

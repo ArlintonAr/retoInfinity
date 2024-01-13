@@ -18,7 +18,7 @@ const login = async (req = reque, res = respon) => {
     const { email, password } = req.payload
 
     try {
-        const client = await Client.findOne({ where: { email } })
+        const client = await Client.findOne({where:{email:email}} )
 
         //Si el cliente no existe
         if (!client) {
@@ -28,7 +28,7 @@ const login = async (req = reque, res = respon) => {
         }
         //Verificamos la contraseña
         const validPassword = bcrypt.compareSync(password, client.password)
-        if (!validPassword) {
+        if (!validPassword) { 
             return res.response({
                 msg: "El Usuario / Password no son correctos"
             })
@@ -38,7 +38,6 @@ const login = async (req = reque, res = respon) => {
         const token = await generateJWT(client.id)
        
         return res.response({
-            client,
             token
           
         })

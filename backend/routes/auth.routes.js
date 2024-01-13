@@ -8,6 +8,7 @@ const authRoutes = [
         method: 'POST',
         path: '/api/client/login',
         handler: login,
+        
     }
 ]
 export default authRoutes

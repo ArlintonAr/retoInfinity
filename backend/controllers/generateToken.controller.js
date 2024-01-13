@@ -44,11 +44,19 @@ const  generateToken = async (req = reque, res = respon) => {
 
 }
 
+const listToken= async(req = reque, res = respon)=>{
+  const tokens = await Token.findAll()
+
+  return res.response({
+      tokens
+  })
+
+}
 const updateToken=async(req=reque,res=respon)=>{
 
 
 
 }
 
-export {generateToken,updateToken}
+export {generateToken,updateToken,listToken}
 
