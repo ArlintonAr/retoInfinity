@@ -17,6 +17,7 @@ export class TokensTableComponent {
   }
   ngOnInit(): void {
     this.listClients()
+
   }
 
 
@@ -28,4 +29,6 @@ export class TokensTableComponent {
     })
 
   }
+
+
 }

@@ -10,6 +10,7 @@ import { ClientPost } from './interfaces/clientsPost';
   styleUrl: './clients.component.css'
 })
 export class ClientsComponent {
+  public token:string=""
 
   public id: number = 0
   public name: string = ""
@@ -42,6 +43,16 @@ export class ClientsComponent {
         console.log(newClient)
         console.log(client)
       })
+  }
+
+  generateToken() {
+    this.serviceClient.generateToken()
+    .subscribe(
+      (response: any) => {
+        this.token = response.value;
+        console.log(this.token)
+      }
+    )
   }
 }
 

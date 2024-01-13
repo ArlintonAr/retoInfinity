@@ -31,5 +31,9 @@ export class ClientsService {
 
   }
 
+  generateToken():Observable <any>{
+    return this.http.post(this.apiUrlToken,{});
+
+  }
 }
 

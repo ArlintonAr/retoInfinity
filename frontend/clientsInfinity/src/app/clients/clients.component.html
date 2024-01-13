@@ -36,10 +36,10 @@
     </div>
     <div class="col-md-6">
       <div class="card bg-dark text-white">
-        <button type="button" class="btn btn-primary" >Generar Token</button>
+        <button type="button" (click)="generateToken()" class="btn btn-primary" >Generar Token</button>
 
         <div class="card-body">
-          <p class="card-title">Token Generado</p>
+          <p class="card-title">{{token}}</p>
           <p class="card-text"></p>
         </div>
       </div>

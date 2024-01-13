@@ -10,14 +10,14 @@ import { ClientsService } from '../../services/clients.service';
 export class ClientsTableComponent  implements OnInit{
 
   public clients:Client[]=[]
+
   constructor(private clientsService:ClientsService){
 
   }
   ngOnInit(): void {
     this.listClients()
+
   }
-
-
 
 
 
