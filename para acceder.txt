@@ -1,0 +1,2 @@
+ correo : test2@test.com
+ contraseña : test2
